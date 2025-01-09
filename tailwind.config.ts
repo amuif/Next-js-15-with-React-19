@@ -10,7 +10,7 @@ export default {
   theme: {
   	extend: {
 		backgroundImage:{
-			'home': "url('Images/home.png')",
+			'home-bg': "url('/Images/home.jpg')",
 		},
   		colors: {
   			background: 'hsl(var(--background))',
@@ -58,8 +58,32 @@ export default {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
-  		}
-  	}
+  		},
+		keyframes:{
+			"appear":{
+				from:{
+					opacity: "0",
+					transform: "translateY(2rem)"
+				},
+				to:{
+					opacity: "1",
+					transform: "translateY(0)"
+				}
+			},
+			"slide":{
+				from:{
+					"transform": "translateX(100%)"
+				},
+				to:{
+					"transform": "translateX(0%)",
+				}
+			}
+		},
+		animation:{
+			"appear" : "appear 1s ease-in-out",
+			"slider" : " slide 750ms ease-in-out"
+		},
+	}
   },
   plugins: [require("tailwindcss-animate")],
 } satisfies Config;
